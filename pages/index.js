@@ -1,6 +1,11 @@
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 
+import { Layout } from "../components";
+
+const API_ENDPOINT =
+  "https://api.collegefootballdata.com/games?year=2019&seasonType=regular&team=USC";
+
 const didUSCWin = (away, home) => {
   if (away.team === "USC") {
     return away.points > home.points;
@@ -48,17 +53,13 @@ const Home = ({ data }) => {
       <Head>
         <title>Did USC Win?</title>
       </Head>
-      Did USC win?
-      <hr />
-      {games}
+      <Layout>{games}</Layout>
     </>
   );
 };
 
 Home.getInitialProps = async () => {
-  const res = await fetch(
-    "https://api.collegefootballdata.com/games?year=2019&seasonType=regular&team=USC"
-  );
+  const res = await fetch(API_ENDPOINT);
   const data = await res.json();
 
   return { data };
