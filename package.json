@@ -1,0 +1,28 @@
+{
+  "name": "didusc.win",
+  "version": "1.0.0",
+  "description": "Site that checks whether or not USC won their last football game ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilhelmWillie/didusc.win.git"
+  },
+  "author": "Wilhelm Willie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WilhelmWillie/didusc.win/issues"
+  },
+  "homepage": "https://github.com/WilhelmWillie/didusc.win#readme",
+  "dependencies": {
+    "next": "^9.0.5",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "styled-components": "^4.3.2"
+  }
+}
