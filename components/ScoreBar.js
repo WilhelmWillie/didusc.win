@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Container from "./Container";
 import FlexContainer from "./FlexContainer";
 
-const ScoreBar = ({ away, home }) => {
+const ScoreBar = ({ away, home, date }) => {
   return (
     <Wrapper>
       <Container>
@@ -12,7 +12,7 @@ const ScoreBar = ({ away, home }) => {
             <GameParticipants>
               {away.team} @ {home.team}
             </GameParticipants>
-            <GameDate>Aug 31, 2019</GameDate>
+            <GameDate>{date}</GameDate>
           </GameDetails>
           <GameScore>
             <Score winner={away.points > home.points}>{away.points}</Score>

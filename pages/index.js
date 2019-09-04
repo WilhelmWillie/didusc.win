@@ -2,6 +2,7 @@ import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 
 import { Hero, ScoreBar, Upcoming } from "../components";
+import { formatDate } from "../utils";
 
 const API_ENDPOINT =
   "https://api.collegefootballdata.com/games?year=2019&seasonType=regular&team=USC";
@@ -40,6 +41,8 @@ const Home = ({ data }) => {
     points: lastGame.home_points
   };
 
+  const lastGameDate = formatDate(lastGame.start_date);
+
   return (
     <>
       <Head>
@@ -51,7 +54,7 @@ const Home = ({ data }) => {
         />
       </Head>
       <Hero didWin={didUSCWin(away, home)} />
-      <ScoreBar away={away} home={home} />
+      <ScoreBar away={away} home={home} date={lastGameDate} />
       <Upcoming />
     </>
   );
