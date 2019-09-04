@@ -7,7 +7,7 @@ const ScoreBar = ({ away, home }) => {
   return (
     <Wrapper>
       <Container>
-        <FlexContainer justify="space-between" align="center">
+        <ScoreFlexContainer justify="space-between" align="center">
           <GameDetails>
             <GameParticipants>
               {away.team} @ {home.team}
@@ -18,7 +18,7 @@ const ScoreBar = ({ away, home }) => {
             <Score winner={away.points > home.points}>{away.points}</Score>
             <Score winner={away.points < home.points}>{home.points}</Score>
           </GameScore>
-        </FlexContainer>
+        </ScoreFlexContainer>
       </Container>
     </Wrapper>
   );
@@ -30,10 +30,20 @@ const Wrapper = styled.div`
   box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.76);
 `;
 
+const ScoreFlexContainer = styled(FlexContainer)`
+  ${({ theme }) => theme.media.tablet`
+    flex-direction: column;
+  `};
+`;
+
 const GameDetails = styled.div`
   display: flex;
   flex-direction: column;
   padding: 24px 0;
+
+  ${({ theme }) => theme.media.tablet`
+    text-align: center;
+  `};
 `;
 
 const GameParticipants = styled.h3`
@@ -53,6 +63,11 @@ const GameDate = styled.h4`
 
 const GameScore = styled(FlexContainer)`
   align-self: stretch;
+
+  ${({ theme }) => theme.media.tablet`
+    justify-content: center;
+    margin-top: 16px;
+  `};
 `;
 
 const Score = styled.div`
