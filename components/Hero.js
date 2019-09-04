@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 `;
 
 const Column = styled.div`
-  width: 50%;
+  width: 100%;
   text-align: center;
 
   ${({ theme }) => theme.media.tablet`
