@@ -44,6 +44,7 @@ const Home = ({ data }) => {
     <>
       <Head>
         <title>Did USC Win?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Hero didWin={didUSCWin(away, home)} />
       <ScoreBar away={away} home={home} />
