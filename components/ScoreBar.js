@@ -3,18 +3,20 @@ import styled from "styled-components";
 import Container from "./Container";
 import FlexContainer from "./FlexContainer";
 
-const ScoreBar = () => {
+const ScoreBar = ({ away, home }) => {
   return (
     <Wrapper>
       <Container>
         <FlexContainer justify="space-between" align="center">
           <GameDetails>
-            <GameParticipants>USC vs. Fresno State</GameParticipants>
+            <GameParticipants>
+              {away.team} @ {home.team}
+            </GameParticipants>
             <GameDate>Aug 31, 2019</GameDate>
           </GameDetails>
           <GameScore>
-            <Score winner>31</Score>
-            <Score>24</Score>
+            <Score winner={away.points > home.points}>{away.points}</Score>
+            <Score winner={away.points < home.points}>{home.points}</Score>
           </GameScore>
         </FlexContainer>
       </Container>
@@ -25,6 +27,7 @@ const ScoreBar = () => {
 const Wrapper = styled.div`
   background: ${({ theme }) => theme.color.white};
   color: ${({ theme }) => theme.color.bg};
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.76);
 `;
 
 const GameDetails = styled.div`

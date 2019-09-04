@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 import Container from "./Container";
 
-const Hero = () => {
+const Hero = ({ didWin }) => {
   return (
     <>
       <Wrapper>
         <Container>
           <Question>Did USC win?</Question>
-          <Answer>Yes</Answer>
+          <Answer>{didWin ? "Yes" : "No"}</Answer>
         </Container>
       </Wrapper>
     </>
