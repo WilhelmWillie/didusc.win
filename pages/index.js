@@ -1,7 +1,7 @@
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 
-import { Layout } from "../components";
+import { Hero, ScoreBar } from "../components";
 
 const API_ENDPOINT =
   "https://api.collegefootballdata.com/games?year=2019&seasonType=regular&team=USC";
@@ -53,7 +53,8 @@ const Home = ({ data }) => {
       <Head>
         <title>Did USC Win?</title>
       </Head>
-      <Layout>{games}</Layout>
+      <Hero />
+      <ScoreBar />
     </>
   );
 };

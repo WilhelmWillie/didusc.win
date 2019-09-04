@@ -5,8 +5,9 @@ const GlobalStyles = createGlobalStyle`
   ${reset}
 
   body {
-    background: #ED213A;
+    background: ${({ theme }) => theme.color.bg};
     color: ${({ theme }) => theme.color.white};
+    font-family: sans-serif;
   }
 `;
 
