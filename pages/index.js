@@ -17,7 +17,7 @@ const getLastGame = data => {
     lastGameIndex++;
   });
 
-  return [data[lastGameIndex], data.slice(lastGameIndex)];
+  return [data[lastGameIndex], data.slice(lastGameIndex + 1)];
 };
 
 const didUSCWin = (away, home) => {

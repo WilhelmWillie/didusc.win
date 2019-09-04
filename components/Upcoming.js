@@ -69,6 +69,10 @@ const GameOpponent = styled.h4`
   font-size: ${({ theme }) => theme.fontSize.header};
   margin-bottom: 12px;
   font-weight: 800;
+
+  ${({ theme }) => theme.media.tablet`
+    font-size: 40px;
+  `};
 `;
 
 const GameDate = styled.h5`
