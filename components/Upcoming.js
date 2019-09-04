@@ -6,7 +6,7 @@ import { formatDate, getOpponent } from "../utils";
 
 const Upcoming = ({ remainingGames }) => {
   const games = remainingGames.map(game => (
-    <Game>
+    <Game key={game.id}>
       <GameOpponent>{getOpponent(game)}</GameOpponent>
       <GameDate>{formatDate(game.start_date)}</GameDate>
     </Game>
@@ -14,11 +14,9 @@ const Upcoming = ({ remainingGames }) => {
 
   return (
     <Wrapper>
-      <Container>
-        <Heading>Upcoming</Heading>
+      <Heading>Upcoming</Heading>
 
-        {games}
-      </Container>
+      <Games>{games}</Games>
     </Wrapper>
   );
 };
@@ -43,6 +41,13 @@ const Heading = styled.h3`
   }
 `;
 
+const Games = styled.div`
+  overflow-x: scroll;
+  flex-direction: row;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap;
+`;
+
 const Game = styled.div`
   background-image: url("/static/game_bg.png");
   background-position: center;
@@ -51,9 +56,11 @@ const Game = styled.div`
   height: 235px;
   margin: 48px auto 0;
   text-align: center;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
+  flex-grow: 1;
+  scroll-snap-align: start;
 `;
 
 const GameOpponent = styled.h4`
