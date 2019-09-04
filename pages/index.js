@@ -17,7 +17,7 @@ const getLastGame = data => {
     lastGameIndex++;
   });
 
-  return data[lastGameIndex];
+  return [data[lastGameIndex], data.slice(lastGameIndex)];
 };
 
 const didUSCWin = (away, home) => {
@@ -29,7 +29,7 @@ const didUSCWin = (away, home) => {
 };
 
 const Home = ({ data }) => {
-  const lastGame = getLastGame(data);
+  const [lastGame, remainingGames] = getLastGame(data);
 
   const away = {
     team: lastGame.away_team,
@@ -55,7 +55,7 @@ const Home = ({ data }) => {
       </Head>
       <Hero didWin={didUSCWin(away, home)} />
       <ScoreBar away={away} home={home} date={lastGameDate} />
-      <Upcoming />
+      <Upcoming remainingGames={remainingGames} />
     </>
   );
 };
