@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.color.bg};
     color: ${({ theme }) => theme.color.white};
-    font-family: sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 `;
 

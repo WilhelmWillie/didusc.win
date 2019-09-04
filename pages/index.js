@@ -45,6 +45,10 @@ const Home = ({ data }) => {
       <Head>
         <title>Did USC Win?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Hero didWin={didUSCWin(away, home)} />
       <ScoreBar away={away} home={home} />
