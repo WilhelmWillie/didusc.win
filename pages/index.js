@@ -52,6 +52,22 @@ const Home = ({ data }) => {
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900&display=swap"
           rel="stylesheet"
         />
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-125571056-3"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-125571056-3');
+          `
+          }}
+        />
       </Head>
       <Hero didWin={didUSCWin(away, home)} />
       <ScoreBar away={away} home={home} date={lastGameDate} />
