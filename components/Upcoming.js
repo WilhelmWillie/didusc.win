@@ -4,9 +4,17 @@ import Container from "./Container";
 
 import { formatDate, getOpponent } from "../utils";
 
+const calculateOpacity = index => {
+  if (index >= 4) {
+    return 0.25;
+  }
+
+  return 1 - 0.25 * index;
+};
+
 const Upcoming = ({ remainingGames }) => {
-  const games = remainingGames.map(game => (
-    <Game key={game.id}>
+  const games = remainingGames.map((game, index) => (
+    <Game key={game.id} opacity={calculateOpacity(index)}>
       <GameOpponent>{getOpponent(game)}</GameOpponent>
       <GameDate>{formatDate(game.start_date)}</GameDate>
     </Game>
@@ -42,10 +50,7 @@ const Heading = styled.h3`
 `;
 
 const Games = styled.div`
-  overflow-x: scroll;
-  flex-direction: row;
-  scroll-snap-type: x mandatory;
-  white-space: nowrap;
+  flex-direction: column;
 `;
 
 const Game = styled.div`
@@ -54,13 +59,12 @@ const Game = styled.div`
   background-repeat: no-repeat;
   width: 100%;
   height: 235px;
-  margin: 48px auto 0;
+  margin: 80px auto 0;
   text-align: center;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  flex-grow: 1;
-  scroll-snap-align: start;
+  opacity: ${({ opacity }) => opacity};
 `;
 
 const GameOpponent = styled.h4`
