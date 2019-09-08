@@ -58,6 +58,11 @@ const Home = ({ data }) => {
           rel="stylesheet"
         />
 
+        <meta
+          content="https://didusc.win/static/og_img.png"
+          property="og:image"
+        />
+
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-125571056-3"
