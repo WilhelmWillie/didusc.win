@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import Container from "./Container";
-
 const Hero = ({ didWin }) => {
   return (
     <>
@@ -11,6 +9,7 @@ const Hero = ({ didWin }) => {
             <Question>Did USC win?</Question>
             <Answer>{didWin ? "Yes" : "No"}</Answer>
           </Column>
+          <HeroImg src="/static/hero.png" />
         </Container>
       </Wrapper>
     </>
@@ -19,22 +18,45 @@ const Hero = ({ didWin }) => {
 
 const Wrapper = styled.div`
   background-image: linear-gradient(52deg, #3e0c0c 0%, #e73b61 100%);
-  padding-top: 80px;
-  padding-bottom: 80px;
 
   ${({ theme }) => theme.media.tablet`
-    padding-top: 60px;
-    padding-bottom:  60px;
     text-align: center;
   `};
 `;
 
+const Container = styled.div`
+  width: 93.75%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+
+  ${({ theme }) => theme.media.tablet`
+    flex-direction: column;
+  `};
+`;
+
 const Column = styled.div`
-  width: 100%;
+  width: 50%;
   text-align: center;
+  padding: 80px 0;
 
   ${({ theme }) => theme.media.tablet`
     width: 100%;
+    padding: 60px 0;
+  `};
+`;
+
+const HeroImg = styled.img`
+  width: 50%;
+  margin-top: 60px;
+  align-self: flex-end;
+
+  ${({ theme }) => theme.media.tablet`
+    width: 60%;
+    margin-top: 0;
+    align-self: center;
   `};
 `;
 
