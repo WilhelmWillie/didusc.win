@@ -8,9 +8,9 @@ const API_ENDPOINT =
   "https://api.collegefootballdata.com/games?year=2019&seasonType=regular&team=USC";
 
 const getLastGame = data => {
-  let lastGameIndex = 0;
+  let lastGameIndex = -1;
   data.forEach(game => {
-    if (Date.now > Date(game.start_date)) {
+    if (game.home_points === null && game.away_points === null) {
       return;
     }
 
